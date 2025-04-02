@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2217365764517473058, guid: 014424010da7a4a2c85e4d9ca064792d, type: 3}
       propertyPath: m_Name
-      value: Obstacle
+      value: Obstacle Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
