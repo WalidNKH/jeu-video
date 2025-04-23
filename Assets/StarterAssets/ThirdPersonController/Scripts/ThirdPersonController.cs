@@ -14,6 +14,10 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        [Header("Sandwich")]
+        [Tooltip("If the character is holding a sandwich or not")]
+        public bool IsSandwichActive = false;
+        
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
