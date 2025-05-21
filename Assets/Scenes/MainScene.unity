@@ -480,6 +480,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5842206315728902623, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
+      propertyPath: alertCircle
+      value: 
+      objectReference: {fileID: 1858898817}
+    - target: {fileID: 5842206315728902623, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 683224577}
+    - target: {fileID: 5842206315728902623, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
+      propertyPath: isTableWaitingForSandwich
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7330096494089132901, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.76
@@ -519,6 +531,14 @@ PrefabInstance:
     - target: {fileID: 7330096494089132901, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287460790416570955, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
+      propertyPath: m_Name
+      value: plateauTable
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287460790416570955, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8901286653190279265, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
       propertyPath: m_Name
@@ -1020,7 +1040,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918490, guid: ea87872d0eb814342831031154b52cf6, type: 3}
       propertyPath: IsSandwichActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1121,8 +1141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bbcfcc7f0b424c1b9022369164cdb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needPlateauOnBar: 0
-  needPlateauOnTable: 0
   playerController: {fileID: 683224577}
 --- !u!4 &1064915736
 Transform:
@@ -1597,6 +1615,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4307640417859606744, guid: 3e30d69eae4e65745ba7f921b034d1e8, type: 3}
   m_PrefabInstance: {fileID: 1666361174}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1858898817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5162145177264011143, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
+  m_PrefabInstance: {fileID: 471877399}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1870647544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1987,6 +2010,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1947424245445857753, guid: b084190c9fd674c5091b15affe3c267e, type: 3}
+      propertyPath: m_Name
+      value: plateauBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947424245445857753, guid: b084190c9fd674c5091b15affe3c267e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2633359811697368986, guid: b084190c9fd674c5091b15affe3c267e, type: 3}
+      propertyPath: m_Size.x
+      value: 2.702382
+      objectReference: {fileID: 0}
+    - target: {fileID: 2633359811697368986, guid: b084190c9fd674c5091b15affe3c267e, type: 3}
+      propertyPath: m_Size.y
+      value: 2.376038
+      objectReference: {fileID: 0}
+    - target: {fileID: 2633359811697368986, guid: b084190c9fd674c5091b15affe3c267e, type: 3}
+      propertyPath: m_Center.x
+      value: -3.638104
+      objectReference: {fileID: 0}
+    - target: {fileID: 2633359811697368986, guid: b084190c9fd674c5091b15affe3c267e, type: 3}
+      propertyPath: m_Center.y
+      value: 0.6880189
+      objectReference: {fileID: 0}
+    - target: {fileID: 4855719397173907706, guid: b084190c9fd674c5091b15affe3c267e, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 683224577}
     - target: {fileID: 6338490949527095971, guid: b084190c9fd674c5091b15affe3c267e, type: 3}
       propertyPath: m_Name
       value: Bar complet
