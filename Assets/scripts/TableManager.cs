@@ -6,13 +6,18 @@ public class TableManager : MonoBehaviour
 {
     public static TableManager Instance { get; private set; }
 
-    
+    private ScoreManager _scoreManager;    
     public bool isTableWaitingForSandwich;
 
     [SerializeField] private GameObject plateauTable;
     [SerializeField] private GameObject alertCircle;
     [SerializeField] private ThirdPersonController playerController;
 
+    private void Start()
+    {
+        _scoreManager = ScoreManager.Instance;
+    }
+    
     private void Awake()
     {
         if (Instance == null)
@@ -55,6 +60,7 @@ public class TableManager : MonoBehaviour
             isTableWaitingForSandwich = false;
             plateauTable.SetActive(true);
             alertCircle.SetActive(false);
+            _scoreManager.AddScore();
         }
     }
 }
