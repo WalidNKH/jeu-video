@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TableManager : MonoBehaviour
 {
-    private bool _isTableWaitingForSandwich;
+    public bool isTableWaitingForSandwich;
 
     [SerializeField] private GameObject plateauTable;
     
@@ -15,14 +15,16 @@ public class TableManager : MonoBehaviour
     {
         _gameManager = GameManager.Instance;
         
+        //Initialise the table to waiting for a sandwich
+        _gameManager.setNeedPlateauOnBar(true);
         ToggleTableWaiting(true);
     }
     
     private void ToggleTableWaiting(bool value)
     {
         //Set the table to waiting for a sandwich
-        _isTableWaitingForSandwich = value;
-        Debug.Log("Table waiting for sandwich: " + _isTableWaitingForSandwich);
+        isTableWaitingForSandwich = value;
+        Debug.Log("Table waiting for sandwich: " + isTableWaitingForSandwich);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,7 +32,7 @@ public class TableManager : MonoBehaviour
         Debug.Log("OnTriggerEnter");
         //If the player enter the trigger and he has a sandwich in his hand
         //And if the table is waiting for a sandwich
-        if(_gameManager.IsSandwichActive() && _isTableWaitingForSandwich)
+        if(_gameManager.IsSandwichActive() && isTableWaitingForSandwich)
         {
             //Set the table to not waiting for a sandwich
             ToggleTableWaiting(false);
@@ -40,6 +42,10 @@ public class TableManager : MonoBehaviour
             plateauTable.SetActive(false);
             
             Debug.Log("Sandwich placed on table");
+        }
+        else 
+        {
+            Debug.Log("Pas de sandwich ou table pas en attente");
         }
     }
 }

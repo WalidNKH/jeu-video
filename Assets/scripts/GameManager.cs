@@ -5,6 +5,9 @@ using StarterAssets;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    
+    public bool needPlateauOnBar = false;
+    public bool needPlateauOnTable = false;
 
     private void Awake()
     {
@@ -43,5 +46,15 @@ public class GameManager : MonoBehaviour
     public bool IsSandwichActive()
     {
         return playerController.IsSandwichActive;
+    }
+    
+    public void setNeedPlateauOnBar(bool value)
+    {
+        needPlateauOnBar = value;
+    }
+    
+    public void setNeedPlateauOnTable(bool value)
+    {
+        needPlateauOnTable = value;
     }
 }
