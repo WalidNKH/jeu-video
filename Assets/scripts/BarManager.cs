@@ -1,32 +1,37 @@
 using UnityEngine;
-using System.Collections;
+using StarterAssets;
 
 public class BarManager : MonoBehaviour
 {
+    public static BarManager Instance { get; private set; }
 
-    [SerializeField] private GameObject plateauBar;
+    [SerializeField] public GameObject plateauBar;
+    [SerializeField] private ThirdPersonController playerController;
     
-    //Get the SandwichManager who own all the functions to manage the sandwich
-    private GameManager _gameManager;
-
-    //On start we set the table to waiting for a sandwich
-    void Start()
+    private void Awake()
     {
-        _gameManager = GameManager.Instance;
-    }
-
-    //Stream the value needPlateauOnBar to the GameManager to make active the plateau on the bar
-    public void waitForPlateauOnBar()
-    {
-        //Set the bar to waiting for a sandwich
-        if (_gameManager.needPlateauOnBar)
+        if (Instance == null)
         {
-            Debug.Log("Bar waiting for sandwich: " + _gameManager.needPlateauOnBar);
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
         }
     }
+    
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter");
-        
+        if(!playerController.IsHoldingSandwich && plateauBar.activeSelf)
+        {
+            plateauBar.SetActive(false);
+            playerController.IsHoldingSandwich = true;
+            playerController.BackPack.SetActive(true);
+        }
+    }
+    
+    public void setNeedPlateauOnBar(bool value)
+    {
+        plateauBar.SetActive(value);
     }
 }

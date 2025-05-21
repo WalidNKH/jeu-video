@@ -27,14 +27,12 @@ public class CollisionSpeedReducer : MonoBehaviour
             {
                 boxCollider.center = renderer.bounds.center - transform.position;
                 boxCollider.size = renderer.bounds.size;
-                Debug.Log("BoxCollider ajouté et configuré automatiquement");
             }
             else
             {
                 // Configuration par défaut si pas de Renderer
                 boxCollider.center = Vector3.zero;
                 boxCollider.size = new Vector3(2.0f, 1.0f, 2.0f);
-                Debug.Log("BoxCollider ajouté avec configuration par défaut");
             }
         }
     }
@@ -42,7 +40,6 @@ public class CollisionSpeedReducer : MonoBehaviour
     // Cette méthode est déclenchée quand la Table est touchée par un autre objet
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision détectée avec " + collision.gameObject.name);
         ApplySlowdown(collision.gameObject);
     }
     
@@ -57,7 +54,6 @@ public class CollisionSpeedReducer : MonoBehaviour
             {
                 CollisionDetector detector = player.AddComponent<CollisionDetector>();
                 detector.collisionHandlers.Add(this);
-                Debug.Log("CollisionDetector ajouté au joueur");
             }
             else
             {
@@ -65,7 +61,6 @@ public class CollisionSpeedReducer : MonoBehaviour
                 if (!detector.collisionHandlers.Contains(this))
                 {
                     detector.collisionHandlers.Add(this);
-                    Debug.Log("Cette table ajoutée aux handlers du joueur");
                 }
             }
         }
@@ -74,8 +69,6 @@ public class CollisionSpeedReducer : MonoBehaviour
     // Ralentir le joueur s'il a un ThirdPersonController
     public void ApplySlowdown(GameObject playerObject)
     {
-        Debug.Log("Tentative de ralentissement pour " + playerObject.name);
-        
         // Chercher le ThirdPersonController
         ThirdPersonController controller = playerObject.GetComponent<ThirdPersonController>();
         
@@ -86,7 +79,6 @@ public class CollisionSpeedReducer : MonoBehaviour
         
         if (controller != null)
         {
-            Debug.Log("ThirdPersonController trouvé, application du ralentissement");
             // Réduire la vitesse
             float originalSpeed = controller.MoveSpeed;
             float newSpeed = originalSpeed * (1 - slowFactor);
@@ -94,10 +86,6 @@ public class CollisionSpeedReducer : MonoBehaviour
             
             // Restaurer la vitesse originale après un délai
             StartCoroutine(RestoreSpeed(controller, originalSpeed));
-        }
-        else
-        {
-            Debug.LogWarning("Aucun ThirdPersonController trouvé sur " + playerObject.name);
         }
     }
     
@@ -108,7 +96,6 @@ public class CollisionSpeedReducer : MonoBehaviour
         if (controller != null)
         {
             controller.MoveSpeed = originalSpeed;
-            Debug.Log("Vitesse originale restaurée");
         }
     }
 }
@@ -118,11 +105,6 @@ public class CollisionDetector : MonoBehaviour
 {
     public System.Collections.Generic.List<CollisionSpeedReducer> collisionHandlers = new System.Collections.Generic.List<CollisionSpeedReducer>();
     
-    private void Start()
-    {
-        Debug.Log("CollisionDetector démarré");
-    }
-    
     // Cet événement est appelé quand le CharacterController heurte un collider
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
@@ -131,7 +113,6 @@ public class CollisionDetector : MonoBehaviour
         
         if (reducer != null)
         {
-            Debug.Log("CollisionSpeedReducer trouvé directement sur l'objet touché");
             reducer.ApplySlowdown(gameObject);
         }
         
@@ -140,7 +121,6 @@ public class CollisionDetector : MonoBehaviour
         {
             if (hit.gameObject == handler.gameObject)
             {
-                Debug.Log("Objet trouvé dans la liste des handlers connus");
                 handler.ApplySlowdown(gameObject);
                 break;
             }

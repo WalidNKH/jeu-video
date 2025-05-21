@@ -32,8 +32,6 @@ public class SpeedObstacle : MonoBehaviour
             // Réduire la vitesse
             float newSpeed = controller.MoveSpeed * (1 - slowFactor);
             controller.MoveSpeed = newSpeed;
-            
-            Debug.Log($"Ralentissement: Vitesse réduite à {newSpeed}");
         }
     }
     
