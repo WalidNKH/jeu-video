@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2144514932624613463}
-  - component: {fileID: 8214057659638559622}
   - component: {fileID: 4765617613085580254}
   m_Layer: 0
   m_Name: Table logique
@@ -34,27 +33,6 @@ Transform:
   - {fileID: 3518823438471418565}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8214057659638559622
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8303730180168547001}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.4585478, y: 1.4249394, z: 1.5346521}
-  m_Center: {x: 0.00440681, y: 0.6963029, z: 0.013430297}
 --- !u!114 &4765617613085580254
 MonoBehaviour:
   m_ObjectHideFlags: 0
