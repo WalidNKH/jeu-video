@@ -14,20 +14,23 @@ public class EndObjectScript : MonoBehaviour
     private void DisplayFinalScore()
     {
         int finalScore = PlayerPrefs.GetInt("FinalScore", 0);
+        Debug.Log($"Final score retrieved: {finalScore}");
         
         if (scoreText != null)
         {
-            scoreText.text = $"Score Final: {finalScore} points\n\nCliquez pour rejouer";
+            scoreText.text = $"Votre score est de : {finalScore}";
+            Debug.Log($"Score text updated: {scoreText.text}");
         }
         else
         {
-            Debug.LogWarning("ScoreText reference not set in EndObjectScript");
+            Debug.LogError("ScoreText reference not set in EndObjectScript! Make sure to assign it in the inspector.");
         }
     }
     
     public void RestartGame()
     {
-        ChangeScene("MainScene");
+        Debug.Log("RestartGame button clicked!");
+        SceneManager.LoadScene("MainScene");
     }
 
     public void ChangeScene(string sceneName)

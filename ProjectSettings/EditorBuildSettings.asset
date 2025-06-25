@@ -17,9 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/walid/MainSceneWalid.unity
     guid: a3e8a75f4e1cf4b73add7be01db1971b
-  - enabled: 0
-    path: Assets/GameOver.unity
-    guid: 39deef565702847179ecfc6ade7f2f27
+  - enabled: 1
+    path: Assets/Scenes/walid/End.unity
+    guid: e5cdb1c10d36b4846bc9dd6789d76611
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 4419d82f33d36e848b3ed5af4c8da37e, type: 3}
   m_UseUCBPForAssetBundles: 0
