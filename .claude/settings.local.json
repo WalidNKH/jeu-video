@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__unityMCP__manage_gameobject",
+      "Bash(find:*)",
+      "mcp__unityMCP__manage_scene",
+      "mcp__unityMCP__read_console",
+      "mcp__unityMCP__manage_asset",
+      "Bash(rg:*)",
+      "Bash(grep:*)",
+      "mcp__unityMCP__manage_editor",
+      "mcp__unityMCP__execute_menu_item",
+      "Bash(rm:*)"
+    ]
+  },
+  "enableAllProjectMcpServers": false
+}

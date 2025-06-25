@@ -34,15 +34,25 @@ public class GameManager : MonoBehaviour
                 Debug.LogError("TableManager component not found on the GameObject: " + tableManagers[i].name);
             }
         }
+        
+        // Démarrer le jeu avec une première table en attente
+        Invoke("SetRandomTableWaiting", 0.5f);
     }
 
     private void Update()
     {
-        SetRandomTableWaiting();
+        // Retrait de l'appel automatique - sera géré après chaque livraison
     }
 
     public void SetRandomTableWaiting()
     {
+        // Vérifier si le jeu est encore actif
+        if (ScoreManager.Instance != null && !ScoreManager.Instance.IsGameActive())
+        {
+            Debug.Log("Game is no longer active, not selecting new table");
+            return;
+        }
+        
         if (_tableManagersArray.Length > 0)
         {
             // Vérifier si une table est déjà en attente
@@ -64,6 +74,7 @@ public class GameManager : MonoBehaviour
                 // Vérifier si l'objet n'est pas détruit avant de l'utiliser
                 if (_tableManagersArray[randomIndex] != null)
                 {
+                    Debug.Log($"Selecting table at index {randomIndex} to be waiting");
                     _tableManagersArray[randomIndex].ToggleTableWaiting(true);
                 }
                 else
@@ -76,5 +87,24 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("No tables available in the array.");
         }
+    }
+    
+    public void OnTableServed()
+    {
+        Debug.Log("OnTableServed called - Starting new cycle");
+        
+        // Vérifier si le jeu est encore actif
+        if (!ScoreManager.Instance.IsGameActive())
+        {
+            Debug.Log("Game is no longer active, stopping table cycles");
+            return;
+        }
+        
+        // Réactiver le plateau au bar
+        _barManager.setNeedPlateauOnBar(true);
+        Debug.Log("Bar plate reactivated");
+        
+        // Attendre un court instant puis sélectionner une nouvelle table
+        Invoke("SetRandomTableWaiting", 1f);
     }
 }
