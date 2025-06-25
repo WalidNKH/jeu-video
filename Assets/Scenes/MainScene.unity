@@ -369,6 +369,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &113265550 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8901286653190279265, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
+  m_PrefabInstance: {fileID: 471877399}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &331301077
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,6 +802,11 @@ Transform:
   - {fileID: 948002978}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &670484927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8901286653190279265, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
+  m_PrefabInstance: {fileID: 1594028761}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &683224565 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4416926081852918481, guid: ea87872d0eb814342831031154b52cf6, type: 3}
@@ -1305,6 +1315,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 683224577}
+  tableManagers:
+  - {fileID: 113265550}
+  - {fileID: 670484927}
+  - {fileID: 1178143564}
 --- !u!4 &1064915736
 Transform:
   m_ObjectHideFlags: 0
@@ -1455,6 +1469,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4307640417859606744, guid: 3e30d69eae4e65745ba7f921b034d1e8, type: 3}
   m_PrefabInstance: {fileID: 1120694343}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1178143564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8901286653190279265, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
+  m_PrefabInstance: {fileID: 1638173508}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1181809061
 PrefabInstance:

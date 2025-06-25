@@ -32,6 +32,7 @@ public class TableManager : MonoBehaviour
     
     public void ToggleTableWaiting(bool value)
     {
+        Debug.Log("waiting");
         isTableWaitingForSandwich = value;
         plateauTable.SetActive(!value);
 
