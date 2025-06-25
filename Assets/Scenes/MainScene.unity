@@ -581,6 +581,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1858898817}
     - target: {fileID: 5842206315728902623, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
+      propertyPath: plateauTable
+      value: 
+      objectReference: {fileID: 923920770}
+    - target: {fileID: 5842206315728902623, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 683224577}
@@ -714,6 +718,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2144514932624613463, guid: ff8ee501312d54f51b30e38ebb18a193, type: 3}
   m_PrefabInstance: {fileID: 492510454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &509347983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6879293128847245770, guid: 50345acf42a144628af58d9b8ecf2675, type: 3}
+  m_PrefabInstance: {fileID: 558044472}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &542268605
 PrefabInstance:
@@ -884,6 +893,11 @@ Transform:
   - {fileID: 948002978}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &630277700 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6879293128847245770, guid: 50345acf42a144628af58d9b8ecf2675, type: 3}
+  m_PrefabInstance: {fileID: 1004570551}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &663687287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,6 +1252,11 @@ RectTransform:
   m_AnchoredPosition: {x: 34.800537, y: 180}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &923920770 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6879293128847245770, guid: 50345acf42a144628af58d9b8ecf2675, type: 3}
+  m_PrefabInstance: {fileID: 1698105826}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &948002977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1933,7 +1952,7 @@ PrefabInstance:
     - target: {fileID: 5842206315728902623, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
       propertyPath: plateauTable
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 630277700}
     - target: {fileID: 5842206315728902623, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
       propertyPath: playerController
       value: 
@@ -2018,7 +2037,7 @@ PrefabInstance:
     - target: {fileID: 5842206315728902623, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
       propertyPath: plateauTable
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 509347983}
     - target: {fileID: 5842206315728902623, guid: 2243612ceb14743879cbffe9fc9bc2e8, type: 3}
       propertyPath: playerController
       value: 
