@@ -43,6 +43,20 @@ public class CollisionSpeedReducer : MonoBehaviour
         ApplySlowdown(collision.gameObject);
     }
     
+    // Cette méthode est déclenchée quand un objet entre dans la trigger zone
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log($"[CollisionSpeedReducer] OnTriggerEnter avec {other.gameObject.name} (tag: {other.tag})");
+        if (other.CompareTag("Player"))
+        {
+            ApplySlowdown(other.gameObject);
+        }
+        else
+        {
+            Debug.Log($"[CollisionSpeedReducer] Objet ignoré car pas Player: {other.gameObject.name}");
+        }
+    }
+    
     // Il nous faut aussi un script à mettre sur le joueur pour détecter les collisions avec le CharacterController
     private void OnEnable()
     {
@@ -69,12 +83,15 @@ public class CollisionSpeedReducer : MonoBehaviour
     // Ralentir le joueur s'il a un ThirdPersonController
     public void ApplySlowdown(GameObject playerObject)
     {
+        Debug.Log($"[CollisionSpeedReducer] ApplySlowdown appelé sur {playerObject.name}");
+        
         // Chercher le ThirdPersonController
         ThirdPersonController controller = playerObject.GetComponent<ThirdPersonController>();
         
         if (controller == null)
         {
             controller = playerObject.GetComponentInParent<ThirdPersonController>();
+            Debug.Log($"[CollisionSpeedReducer] Controller trouvé dans parent: {controller != null}");
         }
         
         if (controller != null)
@@ -82,20 +99,33 @@ public class CollisionSpeedReducer : MonoBehaviour
             // Réduire la vitesse
             float originalSpeed = controller.MoveSpeed;
             float newSpeed = originalSpeed * (1 - slowFactor);
+            
+            Debug.Log($"[CollisionSpeedReducer] Vitesse originale: {originalSpeed}, nouvelle vitesse: {newSpeed}, slowFactor: {slowFactor}");
+            
             controller.MoveSpeed = newSpeed;
             
             // Restaurer la vitesse originale après un délai
             StartCoroutine(RestoreSpeed(controller, originalSpeed));
+        }
+        else
+        {
+            Debug.Log($"[CollisionSpeedReducer] Aucun ThirdPersonController trouvé sur {playerObject.name}");
         }
     }
     
     // Coroutine pour restaurer la vitesse après un délai
     private System.Collections.IEnumerator RestoreSpeed(ThirdPersonController controller, float originalSpeed)
     {
+        Debug.Log($"[CollisionSpeedReducer] Attente de {slowDuration} secondes avant restauration");
         yield return new WaitForSeconds(slowDuration);
         if (controller != null)
         {
+            Debug.Log($"[CollisionSpeedReducer] Restauration vitesse à {originalSpeed}");
             controller.MoveSpeed = originalSpeed;
+        }
+        else
+        {
+            Debug.Log($"[CollisionSpeedReducer] Controller null lors de la restauration");
         }
     }
 }
